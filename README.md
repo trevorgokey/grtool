@@ -2,7 +2,7 @@
 
 A Research-grade tool to study performance of threaded, GPU accelerated rigid rotation of 3D coordinates
 
-This is a very early alpha stage of GRTOOL, a utility to calculate the RMSD of a MD trajectory.
+This is a very early alpha stage of GRTOOL, a utility to calculate the RMSD of a MD trajectory. See my MS thesis at http://hdl.handle.net/10211.3/163096 for more details.
 
 # To make:
 
