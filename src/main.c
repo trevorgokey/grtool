@@ -6,7 +6,7 @@
 #include "worker_translate.h"
 #include "worker_read.h"
 #include "worker_write.h"
-
+#include "worker_align.h"
 
 
 int main(int argc, char** argv)
@@ -15,8 +15,8 @@ int main(int argc, char** argv)
 	size_t i, k;
 	size_t num_workers = 5;
 	struct system host;
-	size_t mem = 700000;
-	size_t* memptr = &mem;
+	unsigned long long mem = 700000;
+	unsigned long long* memptr = &mem;
 	memptr = NULL;
 	system_linux_simple_bld(&host,memptr);
 	struct system system[16];
@@ -25,7 +25,7 @@ int main(int argc, char** argv)
 	struct module* module;
 	cl_uint num_cl_platforms = 0;
 	int total_platforms;
-	cl_platform_id platform[1];
+	cl_platform_id platform[2];
 	struct timespec start;
 	clock_gettime(CLOCK_REALTIME, &start);
 #if STATS
@@ -41,10 +41,10 @@ int main(int argc, char** argv)
 	{
 		cl_int ret = 0;
 		//ret = clGetPlatformIDs(1, 0, &num_cl_platforms);
-		num_cl_platforms = 1;
+		num_cl_platforms = 2;
 		ret |= clGetPlatformIDs(num_cl_platforms, platform, &num_cl_platforms);
-		if(num_cl_platforms > 1) num_cl_platforms = 1;
 		printf("Notified %d CL platforms\n",num_cl_platforms);
+		if(num_cl_platforms > 1) num_cl_platforms = 1;
 		if( unlikely (ret != CL_SUCCESS) )
 		{
 			printf("Error: clGetPlatformIDs returned %d\n",ret);
@@ -58,17 +58,22 @@ int main(int argc, char** argv)
 	total_platforms = num_cl_platforms + 1;
 	module = calloc((1 + num_workers) * (total_platforms), sizeof(struct module));
 	i = 0;
+	printf("Starting reader\n");
 	worker_read_bld(&worker[i++],&host.device[0], TRAJECTORY_LOCATION);
 #if TRANS 
+	printf("Starting translate worker\n");
 	worker_translate_bld(&worker[i++],&host.device[0]);
 #endif
 #if ALIGN
+	printf("Starting align worker\n");
 	worker_align_bld(&worker[i++],&host.device[0]);
 #endif
 #if RMSD
+	printf("Starting RMSD worker\n");
 	worker_rmsd_bld(&worker[i++],&host.device[0]);
 #endif
 #if WRITE
+	printf("Starting writer\n");
 	worker_write_bld(&worker[i++],&host.device[0],"test.nc");
 #endif
 	num_workers = i;

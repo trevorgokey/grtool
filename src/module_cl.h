@@ -2,7 +2,6 @@
 #ifndef MODULE_CL_H
 #define MODULE_CL_H
 
-#include <CL/cl.h>
 #include "module.h"
 #include "system_cl.h"
 

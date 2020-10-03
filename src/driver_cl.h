@@ -2,7 +2,6 @@
 #ifndef DRIVER_CL_H
 #define DRIVER_CL_H
 
-#include <CL/cl.h>
 #include "driver.h"
 #include "device_cl.h"
 

@@ -2,6 +2,7 @@
 #include <unistd.h>
 #include <stdio.h>
 #include "system_linux_simple.h"
+#include "device_linux_simple.h"
 
 void system_linux_simple_dty(struct system*);
 
@@ -11,7 +12,7 @@ struct system_interface system_linux_simple_interface =
 };
 
 
-int system_linux_simple_bld(struct system* self, size_t* memsize)
+int system_linux_simple_bld(struct system* self, unsigned long long* memsize)
 {
 	size_t device_size = 1;
 	system_bld(self,&system_linux_simple_interface,device_size);

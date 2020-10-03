@@ -2,7 +2,7 @@
 #ifndef SYSTEM_CL_H
 #define SYSTEM_CL_H
 
-#include <CL/cl.h>
+
 #include "buffer.h"
 #include "system.h"
 #include "buffer_cl.h"

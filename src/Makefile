@@ -1,8 +1,11 @@
 #SRC=system.c system_cl.c device.c device_cl.c main.c#$(wildcard *.c) 
 SRC=$(wildcard *.c) 
-SLIBS=/usr/lib/libnetcdf.a
+#SLIBS=/usr/lib64/libnetcdf.a
+SLIBS=-lnetcdf
 OBJ=$(SRC:.c=.o)
-LIBS=-lOpenCL -pthread -lm
+OCL=-L/opt/cuda/lib64 -lOpenCL  
+LIBS=-L/usr/lib64 -pthread -lm 
+LIBS+=$(OCL)
 CFLAGS=-pipe -Werror 
 BIN=qrtool
 
@@ -37,7 +40,7 @@ prof: debug
 opt: CFLAGS += -O2
 opt: $(BIN)
 
-fast: CFLAGS += -O3 -fomit-frame-pointer -march=native -mtune=native
+fast: CFLAGS += -O3 -fomit-frame-pointer -march=native -mtune=native 
 fast: $(BIN) 
 
 clean:

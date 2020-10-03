@@ -12,7 +12,7 @@
 
 #define USE_DOUBLE          1
 #define USE_RECYCLE         1
-#define STATS 		        0
+#define STATS 		        1
 #define USE_CL 		        0
 
 
@@ -43,7 +43,7 @@
 #define WRITE_TRANS         0
 #define ALIGN               1
 #define RMSD                0
-#define WRITE               0
+#define WRITE               1
 
 #define LIMIT_FRAME_CNT
 

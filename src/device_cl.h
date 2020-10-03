@@ -2,8 +2,8 @@
 #ifndef DEVICE_CL_H
 #define DEVICE_CL_H
 
-#include <CL/cl.h>
 #include "device.h"
+#include "module_cl.h"
 
 
 struct device_cl_properties

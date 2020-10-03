@@ -3,6 +3,7 @@
 #include <string.h>
 #include "defines.h"
 #include "worker_rmsd.h"
+#include "module_linux_simple.h"
 #include "system_cl.h"
 #include "module_cl.h"
 #include "device_cl.h"

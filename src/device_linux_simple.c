@@ -10,7 +10,7 @@ size_t get_memory_size(struct device*);
 
 uintptr_t device_linux_simple_mem_alloc(struct device*, size_t);
 void device_linux_simple_mem_dealloc(struct device*, void*,size_t);
-int   device_linux_simple_buffer_bld(struct device*, struct device*, struct buffer*, int, 
+int   device_linux_simple_buffer_bld(struct device*, struct device*, struct buffer*, int,
 		size_t, size_t*, size_t);
 void*  device_linux_simple_map(struct device*, struct buffer*);
 void   device_linux_simple_unmap(struct device*, struct buffer*);
@@ -61,7 +61,7 @@ int device_linux_simple_bld(struct device* self, unsigned long long *memsize)
 
 void device_linux_simple_dty(struct device* self)
 {
-	
+
 }
 size_t get_memory_size(struct device* self)
 {
@@ -95,13 +95,24 @@ void device_linux_simple_mem_dealloc(struct device* self,void* mem,size_t memsiz
 	free(mem);
 #endif
 }
-int  device_linux_simple_buffer_bld(struct device* self, struct device* host, 
-		struct buffer* buf, int mode,size_t bytes_per_elem, size_t* dim, 
-		size_t dim_size)
+int  device_linux_simple_buffer_bld(
+	struct device* self,
+	struct device* host,
+	struct buffer* buf,
+	int mode,
+	size_t bytes_per_elem,
+	size_t* dim,
+	size_t dim_size)
 {
-	buffer_bld(self,host,buf,bytes_per_elem,dim,dim_size);
+	buffer_bld(
+		self,
+		host,
+		buf,
+		bytes_per_elem,
+		dim,
+		dim_size);
 	struct device_linux_simple_properties* device_linux_simple = self->properties;
-	//struct buffer_properties* buf_props =  
+	//struct buffer_properties* buf_props =
 	//	host->fn->mem_alloc(host,sizeof(struct buffer_cl_properties));
 	buf->data = (void*)self->fn->mem_alloc(self,buf->size);
 	if(buf->data == NULL)
@@ -114,6 +125,6 @@ int  device_linux_simple_buffer_bld(struct device* self, struct device* host,
 }
 void device_linux_simple_buffer_dty(struct device* self, struct device* host, struct buffer* buffer)
 {
-	
+
 	//memspace__push__bytes_(&self->memspace,buffer->data,buffer->size);
 }

@@ -3,6 +3,7 @@
 #include "worker_translate.h"
 #include "system_cl.h"
 #include "module_cl.h"
+#include "module_linux_simple.h"
 #include "device_cl.h"
 #include "driver_cl.h"
 

@@ -1,7 +1,6 @@
 #ifndef MEMSPACE_
 #define MEMSPACE_
 
-#include <CL/cl.h>
 #include <stdint.h>
 #include <stddef.h>
 #include "buffer.h"

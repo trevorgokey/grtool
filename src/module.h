@@ -15,7 +15,7 @@ struct module
 	struct system* system;
 	struct driver* driver;
 	size_t driver_size;
-	uint   driver_next_idx;
+	unsigned int   driver_next_idx;
 	void*  properties;
 };
 

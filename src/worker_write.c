@@ -7,9 +7,10 @@
 #include <stdio.h>
 #include "defines.h"
 #include "worker_write.h"
-#include "device_cl.h"
+/* #include "module_cl.h" */
+/* #include "device_cl.h" */
+#include "driver_linux_simple.h"
 #include "driver_cl.h"
-#include "buffer_cl.h"
 
 
 static int worker_write_start(struct worker*);

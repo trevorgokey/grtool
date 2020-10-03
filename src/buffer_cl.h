@@ -1,6 +1,8 @@
-
 #ifndef BUFFER_CL_H
 #define BUFFER_CL_H
+
+#define CL_USE_DEPRECATED_OPENCL_1_2_APIS
+#define CL_TARGET_OPENCL_VERSION 220
 
 #include <CL/cl.h>
 #include "buffer.h"

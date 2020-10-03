@@ -1,5 +1,6 @@
 
 #include "module_linux_simple.h"
+#include "driver_linux_simple.h"
 
 
 static struct module_interface interface = 

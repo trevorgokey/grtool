@@ -3,6 +3,7 @@
 #define DEVICE_H
 
 #include <stddef.h>
+#include <stdlib.h>
 #include "memspace_.h"
 #include "buffer.h"
 #include "defines.h"
@@ -34,6 +35,8 @@ struct buffer_interface
 	void (*dty)(struct device*, struct device*, struct buffer*);
 };
 
+int buffer_bld(struct device*, struct device*, struct buffer*, 
+			size_t, size_t*, size_t);
 
 void buffer_dty(struct device*, struct buffer*);
 

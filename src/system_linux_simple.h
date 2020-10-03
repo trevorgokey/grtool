@@ -9,7 +9,7 @@ struct system_linux_simple_properties
 
 };
 
-int system_linux_simple_bld(struct system*, size_t*);
+int system_linux_simple_bld(struct system*, unsigned long long*);
 size_t system_host_mem_alloc(size_t);
 void   system_host_mem_dealloc(void*);
 

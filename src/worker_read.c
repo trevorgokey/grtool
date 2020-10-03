@@ -7,9 +7,8 @@
 #include <stdio.h>
 #include "defines.h"
 #include "worker_read.h"
-#include "device_cl.h"
+#include "driver_linux_simple.h"
 #include "driver_cl.h"
-#include "buffer_cl.h"
 
 
 #if (MAX_FRAMES > 0)
