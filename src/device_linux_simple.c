@@ -123,6 +123,7 @@ int  device_linux_simple_buffer_bld(
 	if(buf->data != NULL) return 0;
 	else return -1;
 }
+
 void device_linux_simple_buffer_dty(struct device* self, struct device* host, struct buffer* buffer)
 {
 

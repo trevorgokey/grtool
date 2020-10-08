@@ -34,7 +34,8 @@ int module_cl_bld(struct module* self, struct system* system, char* filename, ch
 	self->properties = module_props;
 	while(fgets(buffer,len,fp) != NULL)
 	{
-		int strln = strlen(buffer);
+		int strln = 1024;
+		if (strlen(buffer) < strln) strln = strlen(buffer);
 		ptr = realloc(ksource,sizeof(char*) * (lnum+1));
 		slen = realloc(ksource_lines_size,sizeof(size_t)*(lnum+1));
 		if(ptr && slen)
