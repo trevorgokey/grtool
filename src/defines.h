@@ -17,8 +17,8 @@
 
 
 #define MAX_FRAMES 	        2
-#define WORKER_QUEUE_SIZE   1
-#define STRIDE 		        117
+#define WORKER_QUEUE_SIZE   2
+#define STRIDE 		        10
 #define LAST 		        (50000)
 #define CLEAN_UP            1
 #define SINGLE_TX           1
